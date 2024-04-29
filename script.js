@@ -11,10 +11,10 @@ function handleClick(row,cell){
         gameBoard[row][cell] = currentPlayer;
         render();
         if(checkWinner()){
-            alert("${currentPlayer} VENCEU ! ");
+            alert(`Jogador  ${currentPlayer}  VENCEU !`);
             resetGame();
         }else if(checkDraw()){
-            alert("Empate!");
+            alert("EMPATE !");
             resetGame();
         }else{
             currentPlayer = currentPlayer === "X" ? "O" : "X";
@@ -68,5 +68,6 @@ function resetGame(){
         ['', '', ''],
         ['', '', '']
     ];
-    render();
+    render
 }
+
