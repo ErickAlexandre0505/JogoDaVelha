@@ -71,3 +71,31 @@ function resetGame(){
     render
 }
 
+function salvaResultadoHistorico(conversao){
+    // Adicionar resultado ao array de historico e salvar o array de historico
+    let historico = recuperaHistoricoDeConversoes();
+
+    historico.push(conversao);
+
+    let conversaoEmJson = JSON.stringify(historico);
+    localStorage.setItem("Historico", historico);
+
+}
+
+function recuperaHistoricoDeConversoes(){
+    let historico = localStorage.getItem("historico");
+
+    if(!historico){
+        return [];
+    }
+
+
+    let historicoConvertido = JSON.parse(historico);
+    return historicoConvertido;
+
+    // Retornar o array com historico de conversões 
+
+    historico.push(historicoConvertido);
+    return historicoConvertido;
+
+}
