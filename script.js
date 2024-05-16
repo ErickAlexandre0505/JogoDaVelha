@@ -6,6 +6,7 @@ let gameBoard = [
     ['', '', '']
 ];
 
+// Função para clicar nos quadrados (X,Y) colunas e linhas 
 function handleClick(row,cell){
     if(gameBoard[row][cell] === ''){
         gameBoard[row][cell] = currentPlayer;
@@ -22,6 +23,7 @@ function handleClick(row,cell){
     }
 }
 
+// Função para reconhecer o id(cell) 
 function render(){
     const cells = document.querySelectorAll(".cell");
     gameBoard.forEach((row, rowIndex) => {
@@ -31,6 +33,7 @@ function render(){
     });
 }
 
+// Função para checar os vencedores com todas possibilidades
 function checkWinner(){
     for (let i = 0; i < 3; i++) {
         if (gameBoard[i][0] !== '' && gameBoard[i][0] === gameBoard[i][1] && gameBoard[i][1] === gameBoard[i][2]) {
@@ -50,6 +53,7 @@ function checkWinner(){
 
 }
 
+// Função para checar o empate 
 function checkDraw(){
     for(let row of gameBoard){
         for(let cell of row){
@@ -61,6 +65,7 @@ function checkDraw(){
     return true;
 }
 
+// Função para resetar game após mostrar o vencedor ou o empate
 function resetGame(){
     currentPlayer = "X";
     gameBoard = [
@@ -77,6 +82,7 @@ function salvaResultadoHistorico(conversao){
 
     historico.push(conversao);
 
+    // Método usado para converter o valor numerico para Texto
     let conversaoEmJson = JSON.stringify(historico);
     localStorage.setItem("Historico", historico);
 
